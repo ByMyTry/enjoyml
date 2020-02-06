@@ -1,2 +1,4 @@
-def kek():
-    print('kek')
+from enjoyml import multiclass
+
+__all__ = ['multiclass']
+

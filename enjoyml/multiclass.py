@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 from collections import Counter
 from sklearn.preprocessing import StandardScaler
@@ -25,7 +26,11 @@ def multiclass_cross_val_results(features_matrix, labels, model,
     )
 
 def calc_class_weights(labels, mode='ratio_from_max'):
-    labels_counter = Counter(labels)
-    max_label_count = max(labels_counter.values())
-    return {label: max_label_count/label_count 
-            for label, label_count in labels_counter.items()}
+    if mode == 'ratio_from_max':
+        labels_counter = Counter(labels)
+        max_label_count = max(labels_counter.values())
+        return {label: max_label_count/label_count 
+                for label, label_count in labels_counter.items()}
+    else:
+        raise NotImplementedError()
+

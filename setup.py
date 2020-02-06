@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='enjoyml',
-      version='0.1',
+      version='0.1.9',
       description='',
       url='https://github.com/ByMyTry/enjoyml.git',
       author='anton-taleckij',
