@@ -5,6 +5,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import precision_recall_fscore_support as prfc_metrics
 
+
+__all__ = ['multiclass_cross_val_results', 'calc_class_weights']
+
+
 def multiclass_cross_val_results(features_matrix, labels, model, 
                                  n_folds=3, random_state=42, shuffle=True, 
                                  labels_names=None):
