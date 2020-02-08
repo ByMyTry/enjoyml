@@ -24,12 +24,29 @@ def multiclass_cross_val_results(features_matrix, labels, model,
         res.append(metrics_per_label)
     res = np.asarray(res).mean(axis=0).T
     res = np.vstack((res, res.mean(axis=0)[np.newaxis, :]))
+
+    if labels_names is None:
+        labels_names = [str(i) for i in range(res.shape[0] - 1)]
+    labels_names += ('mean',)
+
     return pd.DataFrame.from_records(
         res, columns=['precision', 'recall', 'f1-score'],
         index=tuple(labels_names) + ('mean',)
     )
 
+
 def calc_class_weights(labels, mode='ratio_from_max'):
+    """
+    :param labels: iterable, classes labels
+    :param mode: str, determine classes weights calculation strategy
+        options:
+            - ratio_from_max
+            (default: ratio_from_max).
+    :return: dict, class label to class weight
+    >>> labels = [1,1,1,2,2,3]
+    >>> calc_class_weights(labels)
+    {1: 1.0, 2: 1.5, 3: 3.0}
+    """
     if mode == 'ratio_from_max':
         labels_counter = Counter(labels)
         max_label_count = max(labels_counter.values())
@@ -37,4 +54,3 @@ def calc_class_weights(labels, mode='ratio_from_max'):
                 for label, label_count in labels_counter.items()}
     else:
         raise NotImplementedError()
-
