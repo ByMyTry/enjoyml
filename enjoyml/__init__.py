@@ -15,5 +15,6 @@ Content:
             - U_net
 """
 from enjoyml import multiclass
+from enjoyml import keras
 
 __all__ = ['multiclass', 'keras']
