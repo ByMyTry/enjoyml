@@ -1,5 +1,5 @@
-from .keras import layers
-from .keras import metrics
-from .keras import applications
+from . import layers
+from . import metrics
+from . import applications
 
 __all__ = ['layers', 'metrics', 'applications']

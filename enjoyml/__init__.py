@@ -14,7 +14,9 @@ Content:
         -application
             - U_net
 """
-from . import multiclass
-# from . import keras
+from __future__ import absolute_import
 
-__all__ = ['multiclass']#, 'keras']
+from . import multiclass
+from . import keras
+
+__all__ = ['multiclass', 'keras']
