@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 import numpy as np
 from keras import backend as K
 from keras import layers
