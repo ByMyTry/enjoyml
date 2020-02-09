@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_namespace_packages
 
 setup(name='enjoyml',
       version='0.2.0',
@@ -7,7 +7,7 @@ setup(name='enjoyml',
       author='anton-taleckij',
       author_email='anton.taleckij.job@gmail.com',
       license='MIT',
-      packages=['enjoyml'],
+      packages=find_namespace_packages(include=['enjoyml.*']),
       install_requires=[
           'numpy',
           'pandas',
