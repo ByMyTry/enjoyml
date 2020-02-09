@@ -14,7 +14,7 @@ Content:
         -application
             - U_net
 """
-from enjoyml import multiclass
-from enjoyml import keras
+from . import multiclass
+from . import keras
 
-__all__ = ['multiclass', 'keras']
+__all__ = ['multiclass']#, 'keras']
